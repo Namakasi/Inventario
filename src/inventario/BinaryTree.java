@@ -194,7 +194,7 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
             System.out.println("Arbol vacío");
         if(x!=null){
             inOrder(x.left);
-            System.out.println(x.key);
+            System.out.println(x.value);
             inOrder(x.right);
         }
     }
@@ -202,7 +202,7 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
     private void inOrder(Node x){
         if(x!=null){
             inOrder(x.left);
-            System.out.println(x.key);
+            System.out.println(x.value);
             inOrder(x.right);
         }
     }
@@ -214,7 +214,7 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
         if(x!=null){
             postOrder(x.left);
             postOrder(x.right);
-            System.out.println(x.key);
+            System.out.println(x.value);
         }
     }
     
@@ -222,7 +222,7 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
         if(x!=null){
             postOrder(x.left);
             postOrder(x.right);
-            System.out.println(x.key);
+            System.out.println(x.value);
         }
     }
     
@@ -231,7 +231,7 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
         if(x==null)
             System.out.println("Arbol vacío");
         if(x!=null){
-            System.out.println(x.key);
+            System.out.println(x.value);
             preOrder(x.left);
             preOrder(x.right);
         }
@@ -239,7 +239,7 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
     
     private void preOrder(Node x){
         if(x!=null){
-            System.out.println(x.key);
+            System.out.println(x.value);
             preOrder(x.left);
             preOrder(x.right);
         }

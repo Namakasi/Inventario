@@ -49,7 +49,7 @@ public class HashTable {
     }
     
     private int search(String nombre){
-        int hashcode=nombre.hashCode()%100;
+        int hashcode=hashCode(nombre);
         if(ht[hashcode]==null)
             return -1;
         if(ht[hashcode].Search(nombre)!=null)
@@ -57,10 +57,12 @@ public class HashTable {
         return -1;
     }
     
-    public int Baja(String nombre){
+    public int Baja(String nombre, int x){
         if(search(nombre)>=0){
             int hashcode=search(nombre);
-            ht[hashcode].Delete(nombre);
+            int i=search(nombre);
+            Producto tmp=ht[i].searchItem(nombre);
+
             return 0;
         }
         return 1;
@@ -71,25 +73,34 @@ public class HashTable {
             System.out.println("Lol aqui no hay nada xhaval xdxdxdxdx");
             return -1;
         }else{
-            int tipo=1;
-            // 1-->Minimo
-            // 2-->Maximo
-            // 3-->In Order
-            // 4-->Pre Order
-            // 5-->Post Order
+            Producto p;
+            int tipo=6;
             switch(tipo){
-                case 1:
-                    Producto p=ht[x].searchItem(ht[x].Minimum());
-                    System.out.println("Producto: "+p.getNombre());
-                    System.out.println("Cantidad: "+p.getCantidad());
-                    System.out.println("Precio: "+p.getPrecio());
-                    System.out.println("Serie: "+p.getSerie());
-                    System.out.println();
+                case 1://Minimo
+                    p=ht[x].searchItem(ht[x].Minimum());
+                    System.out.println(p);
                     break;
-                case 2:
-                    
+                case 2:// Maximo
+                    p=ht[x].searchItem(ht[x].Maximum());
+                    System.out.println(p);
+                    break;
+                case 3:// In Order
+                    ht[x].inOrder();
+                    break;
+                case 4:// Pre Order
+                    ht[x].preOrder();
+                    break;
+                case 5:// Post Order
+                    ht[x].postOrder();
+                    break;
+                default:
+                    System.out.println("Opción Incorrecta");
             }
             return 0;
         }
+    }
+    
+    private int hashCode(String key){
+        return ((key.hashCode()& 0x7fffffff)%ht.length);
     }
 }
