@@ -29,8 +29,13 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
             this.key = key;
             this.value = value;
         }
-        
-        
+    }
+    
+    public Value getValue(Item item){
+        Node tmp=Search(item);
+        if(tmp!=null)
+            return tmp.value;
+        return null;
     }
     
     public void Insert(Item item, Value value){
@@ -127,6 +132,25 @@ public class BinaryTree<Item extends Comparable<Item>, Value>{
         while(x.right!=null)
             x=x.right;
         return (Item) x.key;
+    }
+    
+    public Value searchItem(Item k){
+        Node x=root;
+        if(x==null || x.key.compareTo(k)==0)
+            return x.value;
+        if(x.key.compareTo(k)>0)
+            return searchItem(x.left, k).value;
+        else
+            return searchItem(x.right,k).value;
+    }
+    
+    private Node searchItem(Node x, Item k){
+        if(x==null || x.key.compareTo(k)==0)
+            return x;
+        if(x.key.compareTo(k)>0)
+            return Search(x.left, k);
+        else
+            return Search(x.right,k);
     }
     
     public Node Search(Item k){

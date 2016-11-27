@@ -9,23 +9,23 @@ package inventario;
  *
  * @author Namakasi
  */
-public class Producto<Key extends Comparable> {
-    private Key nombre;
+public class Producto{
+    private String nombre;
     private int serie,cantidad;
     private double precio;
     
-    public Producto(Key nombre,int serie,int cantidad,double precio){
+    public Producto(String nombre,int serie,int cantidad,double precio){
         this.nombre=nombre;
         this.serie=serie;
         this.cantidad=cantidad;
         this.precio=precio;
     }
 
-    public Key getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(Key nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
