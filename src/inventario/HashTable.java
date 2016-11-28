@@ -30,7 +30,7 @@ public class HashTable {
         ht.insertar(p);
         p=new Producto("Martillo",1,2,1);
         ht.insertar(p);
-        ht.Baja("Martillo", 15);
+        ht.Baja("Martilloaaa", 15);
         ht.Listar(12);
     }
     
@@ -71,6 +71,8 @@ public class HashTable {
             
 
             return 0;
+        }else{
+            System.out.println("No existe el producto "+nombre+ "en nuestro inventario c:");
         }
         return 1;
     }
