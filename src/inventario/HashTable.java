@@ -30,6 +30,7 @@ public class HashTable {
         ht.insertar(p);
         p=new Producto("Martillo",1,2,1);
         ht.insertar(p);
+        ht.Baja("Martillo", 15);
         ht.Listar(12);
     }
     
@@ -62,6 +63,12 @@ public class HashTable {
             int hashcode=search(nombre);
             int i=search(nombre);
             Producto tmp=ht[i].searchItem(nombre);
+            if(tmp.getCantidad()-x<0){
+                System.out.println("No tenemos esa cantidad del producto: "+tmp.getNombre());
+            }else{
+                tmp.setCantidad(tmp.getCantidad()-x); 
+            }
+            
 
             return 0;
         }
@@ -74,7 +81,7 @@ public class HashTable {
             return -1;
         }else{
             Producto p;
-            int tipo=6;
+            int tipo=1;
             switch(tipo){
                 case 1://Minimo
                     p=ht[x].searchItem(ht[x].Minimum());
